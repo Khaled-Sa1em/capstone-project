@@ -6,9 +6,7 @@ export default function Image({ photo }) {
   const [isHovered, handleHover] = useHovered()
 
   const { handelAddToCart, handelFavorite } = React.useContext(Context)
-  // console.log(`${photo.id} ${isHovered}`)
 
-  // const [isLineFill, setIsLineFill] = React.useState(false)
   const lineFill = photo.isFavorite ? 'fill' : 'line'
   const addedTOCart = photo.addedToCrat ? 'fill' : 'line'
 
