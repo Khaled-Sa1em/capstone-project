@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-// import useHovered from '../Hooks/useHovered'
-// useRef
 const Context = React.createContext([])
 
 function ContextProvider({ children }) {
@@ -59,7 +57,7 @@ function ContextProvider({ children }) {
         cartsPhotos,
         cartsLength,
         handelAddToCart,
-        handelFillCart
+        handelFillCart,
       }}
     >
       {children}

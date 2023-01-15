@@ -6,17 +6,21 @@ export default function Carts() {
     Context,
   )
   const cartsElements = cartsPhotos.map((photo) => (
-    <div class="infoWrap">
-      <div class="cartSection">
-        <img src={photo.url} alt="" class="itemImg" />
-        <p class="itemNumber">{photo.id}</p>
+    <div className="infoWrap" key={photo.id}>
+      <div className="cartSection">
+        <img src={photo.url} alt="" className="itemImg" />
+        <p className="itemNumber">{photo.id}</p>
       </div>
 
-      <div class="prodTotal cartSection">
+      <div className="prodTotal cartSection">
         <p>${photo.price}</p>
       </div>
-      <div class="cartSection removeWrap">
-        <button href="#" class="remove" onClick={() => handelAddToCart(photo)}>
+      <div className="cartSection removeWrap">
+        <button
+          href="#"
+          className="remove"
+          onClick={() => handelAddToCart(photo)}
+        >
           x
         </button>
       </div>

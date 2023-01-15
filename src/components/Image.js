@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import useHovered from '../Hooks/useHovered'
 import { Context } from '../context/context'
 export default function Image({ photo }) {
-  const [isHovered, handleHover] = useHovered()
+  const [isHovered, ref] = useHovered()
 
   const { handelAddToCart, handelFavorite } = React.useContext(Context)
 
@@ -11,29 +11,14 @@ export default function Image({ photo }) {
   const addedTOCart = photo.addedToCrat ? 'fill' : 'line'
 
   return (
-    <div
-      key={photo.id}
-      className="card"
-      onMouseEnter={() => {
-        handleHover()
-      }}
-      onMouseLeave={() => {
-        handleHover()
-      }}
-    >
+    <div key={photo.id} className="card" ref={ref}>
       {isHovered ? (
         <div className="favCart">
-          <div>
-            <i
-              className={`ri-heart-3-${lineFill}`}
-              onClick={() => handelFavorite(photo.id)}
-            ></i>
+          <div onClick={() => handelFavorite(photo.id)}>
+            <i className={`ri-heart-3-${lineFill}`}></i>
           </div>
-          <div>
-            <i
-              className={`ri-add-circle-${addedTOCart}`}
-              onClick={() => handelAddToCart(photo)}
-            ></i>
+          <div onClick={() => handelAddToCart(photo)}>
+            <i className={`ri-add-circle-${addedTOCart}`}></i>
           </div>
         </div>
       ) : (
